@@ -1,0 +1,18 @@
+<!-- 参数配置 -->
+<context-param>
+    <!-- 关闭 Log4j 自启动 -->
+    <param-name>isLog4jAutoInitializationDisabled</param-name>
+    <param-value>true</param-value>
+</context-param>
+<context-param>
+    <param-name>jdbcURL</param-name>
+    <param-value>jdbc:mysql://localhost:3306/bank_customer</param-value>
+</context-param>
+<context-param>
+    <param-name>jdbcUsername</param-name>
+    <param-value>root</param-value>
+</context-param>
+<context-param>
+    <param-name>jdbcPassword</param-name>
+    <param-value>root</param-value>
+</context-param>

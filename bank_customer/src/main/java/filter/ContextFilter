@@ -1,0 +1,17 @@
+public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+        throws IOException, ServletException {
+    JdbcConnection.init(request.getServletContext());
+
+    // 安全检查。只检查受保护的地址，其它请求默认放行
+    HttpServletRequest req = (HttpServletRequest) request;
+    if ("/user".equals(req.getServletPath())) {
+        // 校验用户是否登录，如果没有登录则跳转到登录页面。
+        if (null == req.getSession().getAttribute(LoginController.LOGGED)) {
+            HttpServletResponse resp = (HttpServletResponse) response;
+            resp.sendRedirect("/index.html");
+            return;
+        }
+    }
+
+    chain.doFilter(request, response);
+}
